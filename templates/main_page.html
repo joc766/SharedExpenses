@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+
+<div class="page-header">Home</div>
+<div class="centered"> 
+    <b>
+    {% if owed|int > 0 %}
+    Hello, {{ user }}, you're an asshole because you owe a total of ${{"%0.2f" % owed}}
+    {% else %}
+    Hello, {{ user }}, you're debt free!
+    {%  endif %}
+    </b>
+    <hr>
+    <div>
+        {% for user in users_debt.keys() %}
+        {% if users_debt[user] > 0 %}
+        <form action="/" method="POST">
+        <p class="para">You owe @{{ user }} ${{ "%0.2f" % users_debt[user]}} 
+                <input name="debtor" value="{{ user }}" type="hidden"> 
+                <input name="cost" value="{{ users_debt[user] }}" type="hidden">
+                <button type="submit" class="btn btn-primary" style="background-color: darkslategrey; font-size: 12px; padding: 2px 9px">Pay</button>
+            </form>
+        </p>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}
+    
+    

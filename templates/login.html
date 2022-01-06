@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+<div class="page-header">Login</div>
+<form action="/login" method="POST">
+  <div class = "mb-3" style="width:20%; margin:auto;">
+    <label for="venmo" class="form-label">Venmo</label>
+    <input type="text" class="form-control" name="venmo" aria-describedby="emailHelp">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" class="form-control" name="password" aria-describedby="emailHelp">
+  </div>
+  <div class = "mb-3" style="width:20%; margin:auto;">
+  <button type="submit" class="btn btn-primary" style="background-color: darkslategrey">Submit</button>
+  </div>
+</form>
+{% endblock %}
+
+
+

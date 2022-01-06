@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+<div class="page-header">Register</div>
+<div class="split left" style="border-right-style:solid;">
+  <div class="split-header">Register to join your group</div>
+<form action="{{url_for('register', new_group=False) }}" method = "POST">
+  <div class = "mb-3" style="width: 40%; position:relative; top:110px; margin:auto;">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" class="form-control" name="name" aria-describedby="emailHelp">
+    <label for="venmo" class="form-label">Venmo Username</label>
+    <input type="text" class="form-control" name="venmo" aria-describedby="emailHelp">
+    <label for="group_no" class="form-label">Group Number</label>
+    <input type="text" class="form-control" name="group_no" aria-describedby="emailHelp">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" class="form-control" name="password" aria-describedby="emailHelp">
+    <label for="password_confirm" class="form-label">Confirm Password</label>
+    <input type="password" class="form-control" name="password_confirm" aria-describedby="emailHelp">
+  </div>
+  <div class = "mb-3" style="width:40%; position: relative; top: 110px;margin:auto;">
+  <button type="submit" class="btn btn-primary" style="background-color: darkslategrey">Submit</button>
+  </div>
+</form>
+</div>
+
+<div class="split right">
+  <div class="split-header">Create a new group</div>
+  <form action="{{url_for('register_group') }}" method = "POST">
+    <div class = "mb-3" style="width: 40%; position:relative; top:110px; margin:auto">
+      <label for="group_name" class="form-label">Group Name</label>
+      <input type="text" class="form-control" name="group_name" aria-describedby="emailHelp">
+    </div>
+    <div class = "mb-3" style="width:40%; position: relative; top: 110px;margin:auto;">
+    <button type="submit" class="btn btn-primary" style="background-color: darkslategrey">Submit</button>
+    </div>
+  </form>
+</div>
+{% endblock %}
+

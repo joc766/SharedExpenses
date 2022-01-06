@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Archive
+{% endblock %}
+
+{% block main %}
+<div class="page-header">Archive </div>
+{% for i in range(length) %}
+<form action='/Archive' method="POST">
+    <input id="groupID" name="groupID" type="hidden" value="{{ ids[i] }}">
+    <button type="submit"> {{ groups[i] }} </button>
+</form>
+{% endfor %}
+
+
+
+
+{% endblock %}

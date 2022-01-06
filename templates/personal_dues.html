@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Personal Dues
+{% endblock %}
+
+{% block main %}
+<div class="page-header"> Personal Dues </div>
+{% for i in range(length) %}
+<form action='/Dues' method="POST">
+    <input id="groupID" name="groupID" type="hidden" value="{{ ids[i] }}">
+    <button type="submit"> {{ groups[i] }} </button>
+</form>
+{% endfor %}
+
+
+
+
+{% endblock %}

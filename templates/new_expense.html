@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    New Expense
+{% endblock %}
+{% block head %}
+<!--
+<meta id="length" data-name="{{ length }}">
+<script>
+    $(document).ready(function () {
+        $("#type").change(function () {
+            var val = $(this).val();
+            $("#ids li").each(function(index){
+                $("#size").append("<option value='a'>test</option>");
+                if (val == $(this).text()) {
+                    $("#size").append("<option value='a'>test</option>");
+                }
+            });
+            
+        });
+    });
+</script>
+-->
+{% endblock %}
+
+{% block main %}
+
+<div class="page-header">Add New Expense</div>
+<!--
+<ul id="ids">
+    {% for id in ids %}
+    <li value="{{ id }}">{{id}}</li>
+    {% endfor %}
+</ul>
+-->
+<form action="/NewExpense" method="POST">
+    <div class="new_expense">
+        <input type="number" name="amount" placeholder="amount">
+        <input type="text" name="description" placeholder="description">
+        <select name="groupID">
+            <option value="">-- Group Name -- </option>
+            {% for id, group in ids_groups %}
+            <option value="{{ id }}"> {{ group }} </option>
+            {% endfor %}
+        </select>
+        <button type="submit">Submit</button>
+    </div>
+</form>
+{% endblock %}

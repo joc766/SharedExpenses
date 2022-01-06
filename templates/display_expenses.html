@@ -1,0 +1,31 @@
+{% extends "all_expenses.html" %}
+
+{% block title %}
+    All Expenses
+{% endblock %}
+
+{% block main %}
+<table class="table">
+    <thead class="thead-light" style="background-color: rgb(100, 156, 135); color: beige;">
+    <tr>
+        <th>Amount</th> <th>Description</th> {% for user in users %}<th>{{ user }}</th> {% endfor %} <th>Who Paid</th> <th>Person Cost</th> <th>Date</th>
+    </tr>
+    </thead>
+    {% for row in all_info %}
+    <tr>
+        <td>{{"$" + '%.2f' % row[0]}}</td>
+        <td>{{row[1]}}</td>
+        {% for item in row[5] %}
+            {% if item %} 
+                <td style="background-color: rgb(177, 252, 177) !important;"> PAID </td>
+            {% else %}
+                <td style="background-color: rgb(255, 127, 127) !important;"> UNPAID </td>
+            {% endif %}
+        {% endfor %}
+        <td>{{row[2]}}</td>
+        <td>{{"$" + '%.2f' % row[3]}}</td>
+        <td>{{row[4]}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
