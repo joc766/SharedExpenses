@@ -15,7 +15,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 
 FLASK_ENV = 'development'
 app = Flask(__name__)
-db_file = r"/Users/jackoconnor/Desktop/Code/SharedExpenses/Expenses.db"
+db_file = r"Expenses.db"
 
 #TODO password hash
 
